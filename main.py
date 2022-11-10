@@ -1,67 +1,27 @@
-# # interaction
-# # between functions
-# # The outputs of a certain function can become inputs of other
-# # functions. That way, the program is built from the interaction
-# # between functions that perform a defined task .
-# # def function_1():
-# # |...
-# # |return a
-# # def function_2(a):
-# # |...
-# # |return b
-# # def function_3(b):
-# # |...
-# # |return c
-# # def function_4(a,c):
-# # |...
-# # |return d
 
-# from random import shuffle
-
-
-#   #initial list
-# sticks = ["-", "--", "---", "----"]
-
-
-#   #mixing sticks
-# def mix(my_list):
-#   shuffle(my_list)
-#   return(my_list)
-
-# print(mix(sticks))
-
-  
-#   #choose number
-# def try_your_luck():
-#   a_try = ""
-#   while a_try not in ['1','2','3','4']:
-#     a_try = input('choose your number')
-#   return int(a_try)
-  
-
-# #verify my try
-# def verify_my_try(a_list, a_try):
-#   if a_list[a_try - 1] =='-':
-#     print('wash the dishes')
-#   else:
-#     print('this time you are safe')
-
-#   print(f" you got {a_list[a_try]}")
-
-#####################################################################################################
-# CREATE A NEW REPL for these challenges and share it with one or two other classmates
+#############################################################################################
 #   Interactions Between Functions Practice #1
 # Create a function (throw_dice) that "throws" two random dice and returns its results (the function MUST RETURN TWO VALUES AS A RESULT, both of which must be between 1 and 6, randomly).
-import random 
+from random import randint
 def throw_dice():
-  dice1 = random(1,6)
-  dice2= random(1,6)
-  
+  dice1= randint(1,6)
+  dice2= randint(1,6)
+  print(f"you rolled a {dice1} and a {dice2}")
+  return dice1 + dice2
 
+throw = throw_dice()
+print(throw)
 # Pass the result of these two dice to a function called roll_result (meaning that this second function MUST RECEIVE TWO ARGUMENTS) and return -without printing it- a certain message according to the what the sum of these values results:
-
+def roll_result(throw):
+  if throw <= 6:
+    print(f"The sum of your dice is {throw}, unfortunate.")
+  elif throw > 6 and throw <= 10:
+    print(f"The sum of your dice is {throw}, you have a good chance.")
+  elif throw >= 10:
+    print(f"The sum of your dice is {throw}, it looks like a winning roll.")
 # If the sum is less than or equal to 6:
 
+roll = roll_result(throw)
 # "The sum of your dice is {sum_dice}. Unfortunate"
 
 # If the sum is greater than 6 and less than 10:
@@ -74,29 +34,36 @@ def throw_dice():
 
 # Hint: use the random library's choice or randint method to choose a random value between 1 and 6.
 
-#   "The sum of your dice is {suma_dados}. Unfortunate"
-# "The sum of your dice is {suma_dados}. You have a good chance"
-# "The sum of your dice is {sum_dice}. It looks like a winning roll"
-
-
-
-
   
-#####################################################################################################
+##############################################################################################
 
 # Interactions Between Functions Practice #2
 # Create a function called reduce_list() that takes a list (numbers) as an argument, and returns also a list, but removing duplicates (leaving only one of the numbers if there are duplicates) and removing the highest value. The order of the elements can be changed.
+import random
+
+for i in range(0,5):
+  randomlist = []
+  n = random.randint(1,30)
+  randomlist.append(n)
+print(randomlist)
+
+def reduce_list(randomlist):  
+  for num in randomlist:
+    res = [*set(num)]
+  print("Original List: ", res)
+
+
 
 # For example, if given the list [1,2,15,7,2] it should return [1,2,7].
 
 # Create a function called average() that can receive as an argument the list returned by the previous function, and that calculates the average of its values. It should return the result (a float), without printing it.
 
-numbers = 
+# numbers = 
 
-def reduce_list(numbers):
+# def reduce_list(numbers):
   
 
-#####################################################################################################
+###############################################################################################
 # Interactions Between Functions Practice #3
 # You must create a list with values and call it secret_codes.
 
@@ -108,4 +75,4 @@ def reduce_list(numbers):
 
 # If the coin comes up "Heads", it should print to the screen: "List was saved" and return the list intact.
 
-# Hint: Use the random library's choice method to choose an element at random from a sequence.(dice)
+# Hint: Use the random library's choice method to choose an element at random from a sequence.(dice)+
