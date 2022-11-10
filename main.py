@@ -1,4 +1,3 @@
-
 #############################################################################################
 #   Interactions Between Functions Practice #1
 # Create a function (throw_dice) that "throws" two random dice and returns its results (the function MUST RETURN TWO VALUES AS A RESULT, both of which must be between 1 and 6, randomly).
@@ -39,20 +38,10 @@ roll = roll_result(throw)
 
 # Interactions Between Functions Practice #2
 # Create a function called reduce_list() that takes a list (numbers) as an argument, and returns also a list, but removing duplicates (leaving only one of the numbers if there are duplicates) and removing the highest value. The order of the elements can be changed.
-import random
 
-for i in range(0,5):
-  randomlist = []
-  n = random.randint(1,30)
-  randomlist.append(n)
-print(randomlist)
+list = [1,2,3,3,4,4,5,6,6,5,8]
 
-def reduce_list(randomlist):  
-  for num in randomlist:
-    res = [*set(num)]
-  print("Original List: ", res)
-
-
+print(set(list))
 
 # For example, if given the list [1,2,15,7,2] it should return [1,2,7].
 
@@ -76,3 +65,27 @@ def reduce_list(randomlist):
 # If the coin comes up "Heads", it should print to the screen: "List was saved" and return the list intact.
 
 # Hint: Use the random library's choice method to choose an element at random from a sequence.(dice)+
+
+import random
+
+secret_codes = [1,2,3]
+
+def coin_toss():
+  flip = randint(1,2)
+  if flip == 1:
+    print("Heads")
+  else:
+    print("Tails")
+
+coin = coin_toss()
+
+def luck(coin, secret_codes):
+  if coin == "Tails":
+    print("List will self destruct.")
+    secret_codes = []
+    return secret_codes
+  else:
+    print("List was saved.")
+    return secret_codes
+
+luck(coin, secret_codes)
